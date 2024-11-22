@@ -110,34 +110,18 @@ def get_trainer(model, dataset, config_file_list, cd):
 
 
 if __name__ == "__main__":
-    model_list = ['GWNet', 'AGCRN', 'MegaCRN', 'STSAGNN', 'test3']
-    model_list = ['PatchTST', 'iTransformer', 'GWNet', 'AGCRN', 'MegaCRN', 'STSAGNN', 'test3']
-    # model_list = ['MegaCRN', 'STSAGNN', 'STSformer', 'test3']
-    # model_list = ['MegaCRN', 'STSAGNN', 'test2', 'CycleNet']
-    # model_list = ['STSAGNN', 'test3', 'STSformer']
-    model_list = ['PatchTST', 'iTransformer', 'STSAGNN_V']
-    # model_list = ['STSAGNN', 'test3']
-    # model_list = ['MegaCRN', 'GWNet']
-    # model_list = ['CCRNN', 'TGCRN']
+    model_list = ['STSAGNN']
     data_list = ['NYC_2023', 'NYC_bike']
-# data_list = ['NYC_2023']
-    # data_list = ['METR_LA', 'PEMS_BAY', 'pemsd3', 'pemsd4', 'pemsd7', 'pemsd8']
-    # data_list = ['METR_LA', 'PEMS_BAY']
-    model_name = model_list[2]
-    data_name = data_list[1]
-    # data_name = 'METR_LA'
-    param_name = 'emb_dim'
-    param_dict = [16, 32, 64, 128, 256]
-    param_name = 'mode'
-    param_dict = [0, 'SG', 'DG', 'AG']
+    model_name = model_list[0]
+    data_name = data_list[0]
     run_times = 1
-    debug_flag = 3
+    debug_flag = 0
 
-    cd = {'output_window': 12, 'metric_len': [1, 6, 12], 'metirc_threshold': [0], 'task_name': 'TF'}
+    param_name = 'emb_dim'
+    param_dict = [32,64,128]
+
+    # cd = {'output_window': 12, 'metric_len': [1, 6, 12], 'metirc_threshold': [0], 'task_name': 'TF'}
     cd = {'output_window': 12, 'metric_len': [1, 6, 12], 'metirc_threshold': None, 'task_name': 'IO'}
-    cd = {'output_window': 12, 'metric_len': [12], 'metirc_threshold': None, 'task_name': 'IO'}
-    # # cd = {'output_window': 12, 'metric_len': [1, 6, 12], 'metirc_threshold': None, 'task_name': 'IO', 'save_result':True}
-    # cd = {'output_window': 12, 'metric_len': [1, 6, 12], 'metirc_threshold': [10], 'task_name': 'OD'}
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", "-m", type=str, default=model_name, help='name of models, see model for more details')
